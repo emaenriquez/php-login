@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Iniciar Sesión</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesion</title>
 </head>
 <body>
     <h1>Iniciar Sesión</h1>
@@ -24,7 +26,7 @@
                 // Inicio de sesión exitoso, redirigir a perfil.html
                 session_start();
                 $_SESSION["username"] = $row["username"];
-                header("Location: perfil_usuario.php");
+                header("Location: ../usuario/perfil_usuario.php");
                 exit();
             } else {
                 echo "Contraseña incorrecta.";
@@ -34,7 +36,6 @@
         }
     }
     ?>
-
     <form method="post" action="">
         <label>Nombre de Usuario:</label>
         <input type="text" name="username" required><br><br>
