@@ -1,45 +1,74 @@
 <?php
-// Incluir el archivo de configuración de la base de datos
-include 'config.php';
+require_once('config.php');
 
-session_start(); // Asegúrate de iniciar la sesión si aún no lo has hecho
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Obtén el ID del libro enviado desde el cliente.
+    $data = json_decode(file_get_contents("php://input"));
+    $idLibro = $data->id_libro;
 
-// Verificar que el usuario esté autenticado antes de permitir agregar libros
-if (!isset($_SESSION["user_id"])) {
-    // Responder con un mensaje de error si el usuario no está autenticado
-    $response = ["success" => false, "message" => "Usuario no autenticado"];
-    echo json_encode($response);
-    exit;
-}
+    // Verifica que el usuario esté autenticado y tenga un ID de usuario.
+    // Debes implementar la autenticación según tus necesidades.
 
-// Verificar que la solicitud sea POST
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Obtener el ID del libro que el usuario quiere agregar
-    $idLibro = $_POST["id_libro"];
+    // Realiza la inserción del libro en la tabla "libros" asociado al usuario.
+    $query = "INSERT INTO libros (nombre, autor, imagen, usuario_id) VALUES (:nombre, :autor, :imagen, :usuario_id)";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute(array(
+        ':nombre' => $title, // Aquí debes definir la variable $title
+        ':autor' => implode(', ', $authors), // Concatena los autores en una cadena
+        ':imagen' => $thumbnail,
+        ':usuario_id' => $usuario_id // Sustituye esto con el ID del usuario actual
+    ));
 
-    // Obtener el ID del usuario actual
-    $usuario_id = $_SESSION["user_id"];
-
-    // Realizar la inserción del libro en la tabla "mis_libros"
-    $stmt = $conn->prepare("INSERT INTO mis_libros (id_libro, usuario_id) VALUES (?, ?)");
-    $stmt->bind_param("ii", $idLibro, $usuario_id);  // "ii" indica que son valores enteros
-
-    if ($stmt->execute()) {
-        // La inserción se realizó con éxito
-        $response = ["success" => true, "message" => "Libro agregado con éxito"];
+    // Devuelve una respuesta JSON indicando si la inserción fue exitosa.
+    if ($stmt->rowCount() > 0) {
+        echo json_encode(array('success' => true));
     } else {
-        // Hubo un error en la inserción
-        $response = ["success" => false, "message" => "Error al agregar el libro: " . $stmt->error];
+        echo json_encode(array('success' => false));
     }
-
-    // Cerrar la conexión y responder con el resultado
-    $stmt->close();
-    $conn->close();
-
-    echo json_encode($response);
-} else {
-    // Responder con un mensaje de error si la solicitud no es POST
-    $response = ["success" => false, "message" => "Solicitud no válida"];
-    echo json_encode($response);
 }
 ?>
+
+<!-- // En add_libro.php
+require_once('config.php');
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $data = json_decode(file_get_contents("php://input"));
+    $idLibro = $data->id_libro;
+
+    // Realiza una nueva solicitud a la API de Google Books para obtener más información del libro.
+    // Puedes usar cURL o la función `file_get_contents`.
+
+    $bookInfo = fetchBookInfo($idLibro, $apiKey);
+
+    // Verifica que el usuario esté autenticado y tiene un ID de usuario.
+    // Debes implementar la autenticación según tus necesidades.
+
+    if ($bookInfo) {
+        // Realiza la inserción del libro en la tabla "libros" asociado al usuario.
+        $query = "INSERT INTO libros (nombre, autor, imagen, usuario_id) VALUES (:nombre, :autor, :imagen, :usuario_id)";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute(array(
+            ':nombre' => $bookInfo['title'],
+            ':autor' => implode(', ', $bookInfo['authors']),
+            ':imagen' => $bookInfo['thumbnail'],
+            ':usuario_id' => $usuario_id // Sustituye esto con el ID del usuario actual
+        ));
+
+        // Devuelve una respuesta JSON indicando si la inserción fue exitosa.
+        if ($stmt->rowCount() > 0) {
+            echo json_encode(array('success' => true));
+        } else {
+            echo json_encode(array('success' => false));
+        }
+    } else {
+        echo json_encode(array('success' => false, 'error' => 'Error al obtener información del libro.'));
+    }
+}
+
+function fetchBookInfo($idLibro, $apiKey) {
+    // Realiza una solicitud a la API de Google Books para obtener información del libro.
+    // Aquí debes implementar la lógica para hacer la solicitud y procesar la respuesta.
+    
+    // Devuelve un array con información del libro (nombre, autor, imagen, etc.).
+    return $bookInfo;
+} -->
