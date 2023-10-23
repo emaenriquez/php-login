@@ -1,17 +1,14 @@
 <?php
-// Conecta a la base de datos (reemplaza los valores con los tuyos).
-$db = new PDO('mysql:host=localhost;dbname=registro_usuarios', 'ema', 'nbdLXJXLtnMnt2Ph');
+// ... (código existente)
 
-// Obtiene los datos del libro desde la solicitud POST.
-$data = json_decode(file_get_contents('php://input'), true);
+if (isUserAuthenticated()) {
+    // Obtiene los datos del libro desde la solicitud POST.
+    $data = json_decode(file_get_contents('php://input'), true);
 
-// Asegúrate de que los campos requeridos estén presentes y no estén vacíos.
-if (isset($data['title']) && !empty($data['title']) &&
-    isset($data['isbn']) && !empty($data['isbn'])) {
-
-    // Inserta los datos en la tabla "libros" con el ID de usuario (si tienes una sesión de usuario activa).
-    session_start();
-    if (isset($_SESSION['user_id'])) {
+    // Asegúrate de que los campos requeridos estén presentes y no estén vacíos.
+    if (isset($data['title']) && !empty($data['title']) &&
+        isset($data['isbn']) && !empty($data['isbn'])) {
+        // Inserta los datos en la tabla "libros" con el ID de usuario.
         $userId = $_SESSION['user_id'];
         $title = $data['title'];
         $author = isset($data['authors']) ? $data['authors'][0] : ''; // Tomando el primer autor si está presente.
@@ -27,14 +24,23 @@ if (isset($data['title']) && !empty($data['title']) &&
             ':usuario_id' => $userId
         ]);
 
-        // Devuelve una respuesta de éxito.
-        echo json_encode(['message' => 'Libro guardado con éxito']);
+        // Devuelve una respuesta JSON de éxito.
+        $response = ['message' => 'Libro guardado con éxito'];
+        echo json_encode($response);
     } else {
-        http_response_code(401); // No se ha iniciado sesión.
-        echo json_encode(['error' => 'Usuario no autenticado']);
+        http_response_code(400); // Datos incompletos o inválidos.
+        $response = ['error' => 'Datos incompletos o inválidos'];
+        echo json_encode($response);
     }
 } else {
-    http_response_code(400); // Datos incompletos o inválidos.
-    echo json_encode(['error' => 'Datos incompletos o inválidos']);
+    http_response_code(401); // No se ha iniciado sesión.
+    $response = ['error' => 'Usuario no autenticado'];
+    echo json_encode($response);
 }
-?>
+
+// Función para verificar la autenticación del usuario (debes implementar tu propia lógica de autenticación).
+function isUserAuthenticated() {
+    // Aquí debes verificar si el usuario está autenticado. Esto puede implicar el uso de tokens de sesión, cookies, o cualquier otro método de autenticación que utilices en tu aplicación.
+    // Retorna true si el usuario está autenticado, de lo contrario, retorna false.
+    return true; // Cambia esto según tu implementación real de autenticación.
+}

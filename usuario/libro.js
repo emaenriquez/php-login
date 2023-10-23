@@ -1,5 +1,5 @@
 // Definir la clave de la API de Google Books.
-const apiKey = 'AIzaSyBJ51G3CUcSstF6HsrbAkbL89XKD6O-JK4';
+const apiKey = 'AIzaSyCRuInTp5qIhjWZx2zFXx3wtxO0ZGOE7hw';
 const results = document.getElementById('results');
 const listaLibros = document.getElementById('table_contenedor');
 let addButtons; 
@@ -16,7 +16,12 @@ document.addEventListener('DOMContentLoaded', function () {
             // Verifica si data está definida antes de usarla.
         if (data) {
             const selectedBook = data.items[bookId].volumeInfo;
-            saveBookToDatabase(selectedBook);
+            const bookData = {
+                title: selectedBook.title,
+                isbn: selectedBook.industryIdentifiers ? selectedBook.industryIdentifiers[0].identifier : 'ISBN no disponible',
+                // Otras propiedades que desees incluir
+            };
+            saveBookToDatabase(bookData);
         }
 });
 
@@ -55,30 +60,31 @@ function searchBooks() {
                 // Agregar el fragmento de HTML al contenedor de resultados.
                 results.innerHTML += bookInfo;
 
-                const bookData = [title,authors,thumbnail,isbn];
-                console.log(bookData[0])
-                console.log(bookData[1])
-                console.log(bookData[2])
-                console.log(bookData[3])
-                
             });
         })
         .catch(error => console.error('Error:', error));
 }})
-
 function saveBookToDatabase(bookData) {
-    // Realiza una solicitud POST al servidor (PHP) con los datos del libro.
-    fetch('guardar_libro.php', {
-        method: 'POST',
-        body: JSON.stringify(bookData),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Procesar la respuesta del servidor si es necesario.
-        console.log('Libro guardado en la base de datos:', data);
-    })
-    .catch(error => console.error('Error al guardar el libro:', error));
+    if (bookData.title && bookData.isbn) {
+        fetch('guardar_libro.php', {
+            method: 'POST',
+            body: JSON.stringify(bookData),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Libro guardado en la base de datos:', data);
+        })
+        .catch(error => console.error('Error al guardar el libro:', error));
+    } else {
+        console.error('Datos incompletos o inválidos en bookData');
+    }
+}
+function isUserAuthenticated() {
+    // Verifica si el usuario ha iniciado sesión o está autenticado de alguna manera.
+    // Puedes utilizar cookies, tokens de autenticación u otros métodos según tu aplicación.
+    // Retorna true si el usuario está autenticado, de lo contrario, retorna false.
+    return true; // Cambia esto según tu implementación real de autenticación.
 }
