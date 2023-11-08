@@ -27,8 +27,6 @@
         <input type="submit" value="Cerrar Sesión">
     </form>
 
-    <a href="mis_libros.php">ir a mi lista de libros</a>
-
     <div class="contenedor">
         <h1 class="titulo"></h1>
         <h2>Busque sus libros favoritos</h2>
