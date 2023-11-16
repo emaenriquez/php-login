@@ -11,3 +11,19 @@
     margin: 0.5rem;
     border: 5px solid black;
 }
+
+.input-chico{
+    width: 100%;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+.container_input {
+    margin-right: 15px;
+}
+
+.container_btn {
+    margin-left: 10px;
+}

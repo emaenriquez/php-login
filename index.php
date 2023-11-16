@@ -3,34 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenido/a a Mi libreria web</title>
     <link rel="icon" href="./imgs/stack-of-books.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Bienvenido/a a Mi libreria web</title>
 </head>
 <body>
+
+    <nav class="navbar">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="#">Bienvenido a My libreria</a>
+
+            <div id="navbarNav" class="navbar-nav">
+
+                <ul class="navbar-nav flex-sm-row">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link ms-2" href="login/registro.php">Registro</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                      <a class="nav-link ms-2" href="login/iniciar_sesion.php">Iniciar Sesion</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                      <a class="nav-link ms-2" href="#">Planes</a>
+                    </li>
+                
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
     
-    <h1>Bienvenido</h1>
-    <h2>Elige una opción:</h2>
-    
-    <a href="login/registro.php"><button>Registro</button></a>
-    <a href="login/iniciar_sesion.php"><button>Iniciar Sesión</button></a>
-    
-    <P>Mi Biblioteca Web es una plataforma digital que ofrece acceso a una amplia variedad de documentos electrónicos, desde textos literarios hasta fuentes primarias influyentes
-        
-         Algunas de las características que ofrece esta biblioteca web son:
-         <!-- Sacarle la numeracion y reemplazarla por puntos -->
-         <!-- Falta clasear los elementos-->
-         <ol>
-            <li>Acceso en línea: Los usuarios pueden acceder a la biblioteca desde cualquier lugar con conexión a internet.</li>
-            <li>Variedad de documentos: La biblioteca ofrece una amplia variedad de documentos electrónicos, incluyendo textos literarios, científicos y técnicos</li>
-            <li>Descarga y visualización: Los usuarios pueden descargar y visualizar los documentos electrónicos desde la plataforma.</li>
-             <li> Personalización: La biblioteca permite a los usuarios personalizar su experiencia de búsqueda y visualización de documentos.</li>
-            <li> Biblioteca de documentos: La plataforma cuenta con una biblioteca de documentos que permite a los usuarios agregar, ver o editar archivos directamente desde la plataforma</li>
-             <li> Makerspace: La biblioteca aloja espacios de creación, como Makerspace, que permiten a los usuarios crear y compartir sus propios documentos electrónicos</li>
-        </ol>
-        <p>En resumen, Mi Biblioteca Web es una plataforma digital que ofrece acceso a una amplia variedad de documentos electrónicos, con la posibilidad de descargar y visualizar los documentos desde la plataforma, personalizar la experiencia de búsqueda y visualización, y acceder a una biblioteca de documentos. Además, la plataforma aloja espacios de creación para que los usuarios puedan crear y compartir sus propios documentos electrónicos.</p>
-        </P>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
-<php> 
-    
-</php>

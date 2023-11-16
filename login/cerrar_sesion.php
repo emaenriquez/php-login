@@ -5,7 +5,7 @@ session_start();
 // Destruye la sesión
 session_destroy();
 
-// Redirige al usuario a la página de inicio o a donde desees
+// Redirige al usuario a la página de inicio 
 header("Location: ../index.php");
 exit();
 ?>
