@@ -1,3 +1,20 @@
+<?php
+    include('config.php'); // Incluir la configuración de la base de datos
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Obtener los datos del formulario
+        $username = $_POST["username"];
+        $email = $_POST["email"];
+        $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+        // Insertar los datos en la base de datos
+        $sql = "INSERT INTO usuarios (username, email, password) VALUES ('$username', '$email', '$password')";
+        
+        if ($conn->query($sql) === TRUE) {
+            echo "Registro exitoso. <a href='iniciar_sesion.php'>Iniciar Sesión</a>";
+        } else {
+            echo "Error al registrar: " . $conn->error;
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,26 +27,6 @@
 <body>
     <div class="container">
        
-
-        <?php
-        include('config.php'); // Incluir la configuración de la base de datos
-
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Obtener los datos del formulario
-            $username = $_POST["username"];
-            $email = $_POST["email"];
-            $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-
-            // Insertar los datos en la base de datos
-            $sql = "INSERT INTO usuarios (username, email, password) VALUES ('$username', '$email', '$password')";
-            
-            if ($conn->query($sql) === TRUE) {
-                echo "Registro exitoso. <a href='iniciar_sesion.php'>Iniciar Sesión</a>";
-            } else {
-                echo "Error al registrar: " . $conn->error;
-            }
-        }
-        ?>
         <nav class="navbar">
             <div class="container-fluid">
               <a class="navbar-brand" href="../index.php">
@@ -58,6 +55,7 @@
             </div>
         </form>
     </div>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Volkhov:wght@700&amp;display=swap" rel="stylesheet">
     <!-- Agrega el enlace al archivo JavaScript de Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
