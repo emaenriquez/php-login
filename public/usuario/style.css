@@ -1,19 +1,30 @@
 
 
-.libros_contenedor {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    }
-.div_contenedor_libros{
-    margin: 0.5rem;
-    border: 5px solid black;
-}
 
 .input-chico{
     width: 100%;
+}
+.contenedor_libros{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+} 
+
+.div_contenedor_libros{
+    width: 18rem;
+    border-radius: 10px;
+    /* margin-left: 0 1rem; */
+}
+
+.div_contenedor_libros img {
+    width: 80%;
+}
+
+.div_contenedor_libros h2,p{
+    margin: 1rem;
 }
 
 .container{
@@ -26,4 +37,12 @@
 
 .container_btn {
     margin-left: 10px;
+}
+
+
+@media screen and (min-width: 768px) {
+    .contenedor_libros{
+        flex-direction: row;
+        flex-wrap: wrap;
+    } 
 }

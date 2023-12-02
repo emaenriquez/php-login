@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
     session_start();
     if (isset($_SESSION["username"])) {
         $username = $_SESSION["username"];
@@ -6,7 +6,7 @@
     } else {
         echo "¡Bienvenido, Invitado!";
     }
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -19,14 +19,21 @@
 </head>
 <body>
 
+
     <div id="bienvenida">
 
     </div>
         <!-- Botón para cerrar sesión -->
-        <form method="post" action="../login/cerrar_sesion.php">
-            <input type="submit" value="Cerrar Sesión">
-        </form>
-
+        <nav class="navbar navbar-light sticky-top" data-navbar-on-scroll="data-navbar-on-scroll">
+            <p class="mt-2">Bienvenido a su perfil</p>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span>
+            </button>
+            <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+                <form method="post" action="../login/cerrar_sesion.php">
+                    <input type="submit" class="btn btn-danger mt-2" value="Cerrar Sesión">
+                </form>
+            </div>
+        </nav>
         <div class="contenedor">
 
             <h1 class="titulo text-center">Busque sus libros favoritos</h1>
@@ -43,7 +50,7 @@
 
             </div>
 
-        <div id="results"></div>
+        <div class="contenedor_libros" id="results"></div>
     </div>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Volkhov:wght@700&amp;display=swap" rel="stylesheet">

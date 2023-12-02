@@ -43,7 +43,7 @@
         <div class="container">
           <div class="row align-items-center">
             <div class="col-md-6 text-md-start text-center py-6">
-              <h1 class="mb-4 fs-9 fw-bold">Mi Libreria</h1>
+              <h1 class="mb-4 fs-9 fw-bold">Mi Librería</h1>
               <p class="mb-6 lead text-secondary">Explora un mundo de historias en Mi Librería. Encuentra libros fascinantes que te inspirarán y te sumergirán en nuevas aventuras literarias<br class="d-none d-xl-block" /></p>
             </div>
             <div class="col-md-6 text-end"><img class="pt-7 pt-md-0 img-fluid" src="assets/img/hero/hero-img.png" alt="" /></div>
@@ -51,9 +51,10 @@
         </div>
       </section>
 
+    <!-- planes -->
     <div class="galeria__planes">
 
-      <div class="card m-3 galeria__planes-contenedor-1" style="width: 17rem; background-color: #f5f5f5;" id="planes">
+      <div class="card m-3 galeria__planes-contenedor-1" style="width: 18rem; background-color: #f5f5f5;" id="planes">
         <img src="assets/img/pexels-energepiccom-110469.jpg" class="card-img-top" alt="...">
 
         <div class="card-body" style="background-color: #f5f5f5;">
@@ -73,7 +74,7 @@
         
       </div>
 
-      <div class="card m-3 galeria__planes-contenedor-2" style="width: 17rem; background-color: #f5f5f5;">
+      <div class="card m-3 galeria__planes-contenedor-2" style="width: 18rem; background-color: #f5f5f5;">
         <img src="assets/img/pexels-energepiccom-110469.jpg" class="card-img-top" alt="...">
 
         <div class="card-body" style="background-color: #f5f5f5;">
@@ -92,11 +93,12 @@
         </div>
         
       </div>
+
     </div>
 
     <!-- preguntas frecuentes -->
 
-    <div class="accordion" id="preguntasFrecuente">
+    <div class="accordion" id="preguntasFrecuente" style='margin:1rem;'>
 
       <h2>Preguntas Frecuentes</h2>
 
@@ -105,7 +107,7 @@
         <h2 class="accordion-header">
 
           <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            Accordion Item #1
+          ¿Cómo puedo acceder a la biblioteca virtual?
           </button>
 
         </h2>
@@ -113,7 +115,7 @@
         <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
 
           <div class="accordion-body">
-            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+          Puedes acceder a nuestra biblioteca virtual ingresando a nuestro sitio web desde cualquier dispositivo con conexión a Internet. No se requiere descarga de software adicional.
           </div>
 
         </div>
@@ -125,7 +127,7 @@
           <h2 class="accordion-header">
 
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            Accordion Item #2
+            ¿Es necesario tener una cuenta para utilizar la biblioteca?
             </button>
 
           </h2>
@@ -133,7 +135,7 @@
           <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
 
           <div class="accordion-body">
-            <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+          Sí, se requiere una cuenta para acceder a la mayoría de nuestros recursos. Puedes registrarte de forma gratuita en nuestra página de inicio.
           </div>
 
       </div>
@@ -142,14 +144,14 @@
 
       <h2 class="accordion-header">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Accordion Item #3
+        ¿Cómo puedo buscar y encontrar libros en la biblioteca?
         </button>
       </h2>
 
       <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
 
         <div class="accordion-body">
-          <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        Puedes utilizar nuestra barra de búsqueda para encontrar libros por título, autor o palabra clave
         </div>
 
       </div>
@@ -158,16 +160,12 @@
 
     <!-- Acerca De -->
 
-    <section id="acerca-de">
+    <section id="acerca-de" style="margin:1rem;">
       
       <h2>Acerca de Nosotros</h2>
       <p>Bienvenido a Mi Librería, tu destino para descubrir y explorar una amplia variedad de libros. Nos dedicamos a ofrecer la mejor selección de libros de diferentes géneros y autores.</p>
       <p>Nuestra misión es fomentar la pasión por la lectura y proporcionar a nuestros clientes una experiencia única al explorar el mundo de la literatura.</p>
       
-      <footer>
-        <p>&copy; 2023 Mi Librería</p>
-      </footer>
-
     </section>
 
     

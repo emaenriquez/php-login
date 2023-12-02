@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Recorrer los resultados y mostrar la información de cada libro.
                 data.items.forEach((item, index) => {
                     title = item.volumeInfo.title;
-                    authors = item.volumeInfo.authors; 
                     thumbnail = item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : 'Imagen no disponible';
                     isbn = item.volumeInfo.industryIdentifiers ? item.volumeInfo.industryIdentifiers[0].identifier : 'ISBN no disponible';
                     previewLink = item.volumeInfo.previewLink;
@@ -33,11 +32,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Crear un fragmento de HTML con la información del libro.
                     const bookInfo = `
                         <div class="div_contenedor_libros">
-                            <h2 class="libros_titulo">${title}</h2>
-                            <p class="libros_isbn">ISBN: ${isbn}</p>
-                            <p class="libros_autor">${authors}</p>
                             <img src="${thumbnail}" alt="Portada del libro" class="libros_portadas">
-                            <a href="${previewLink}" target="_blank" class="libros_descargar">Leer libro</a>
+                            <h2 class="libros_titulo">${title}</h2>
+                            <p>
+                                <a href="${previewLink}" target="_blank" class="libros_descargar">Leer libro</a>
+                            </<p>
                         </div>`;
 
                     // Agregar el fragmento de HTML al contenedor de resultados.

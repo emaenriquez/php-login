@@ -1,0 +1,9 @@
+
+
+.link_iniciar_sesion{
+    position: relative;
+    top: 20rem;
+    left: 3rem;
+    z-index: 0;
+    background-color: aqua;
+}

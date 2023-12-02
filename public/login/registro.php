@@ -9,7 +9,7 @@
         $sql = "INSERT INTO usuarios (username, email, password) VALUES ('$username', '$email', '$password')";
         
         if ($conn->query($sql) === TRUE) {
-            echo "Registro exitoso. <a href='iniciar_sesion.php'>Iniciar Sesión</a>";
+            echo "<a class='link_iniciar_sesion' href='iniciar_sesion.php'> Registro exitoso Iniciar Sesión</a>";
         } else {
             echo "Error al registrar: " . $conn->error;
         }
@@ -23,6 +23,7 @@
     <title>Registro</title>
     <!-- Agrega los enlaces a los archivos CSS de Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
@@ -30,8 +31,9 @@
         <nav class="navbar">
             <div class="container-fluid">
               <a class="navbar-brand" href="../index.php">
-                <img src="../imgs/stack-of-books.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-                Volver al inicio
+
+                <img src="../assets/angle-left.png" alt="Logo" width="25" height="27" class="d-inline-block align-text-top">
+                Volver al Inicio
               </a>
             </div>
         </nav>
@@ -50,8 +52,8 @@
                 <label for="password">Contraseña:</label>
                 <input type="password" class="form-control" id="password" name="password" required>
             </div>
-            <div class="text-center">
-                <input type="submit" class="btn btn-primary mt-2" value="Registrarse">
+            <div class="text-center" >
+                <input type="submit" class="btn btn-primary mt-5" value="Registrarse">
             </div>
         </form>
     </div>

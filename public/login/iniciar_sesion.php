@@ -32,14 +32,15 @@
     <title>Iniciar sesión</title>
     <!-- Agrega los enlaces a los archivos CSS de Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         
         <nav class="navbar">
             <div class="container-fluid">
-              <a class="navbar-brand" href="../index.php">
-                <img src="../imgs/stack-of-books.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+              <a class="navbar-brand btn_inicio_volver" href="../index.php">
+                <img src="../assets/angle-left.png" alt="Logo" width="25" height="27" class="d-inline-block align-text-top">
                 Volver al inicio
               </a>
             </div>
@@ -55,7 +56,7 @@
                 <input type="password" class="form-control" id="password" name="password" required>
             </div>
             <div class="text-center">
-                <input type="submit" class="btn btn-warning ms-3" value="Iniciar Sesión">
+                <input type="submit" class="btn btn-primary mt-4" value="Iniciar Sesión">
             </div>
         </form>
     </div>
